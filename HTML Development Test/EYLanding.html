@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      .bg-light {
+          background-color: #000000!important;
+      }
+
+
+      div#AppContainer {
+          width: 100%;
+          margin:0px;
+          padding: 0px;
+      }
+
+      h3 {
+          color: white;
+          font-size: 20px!important;
+          margin-bottom: -5px;
+          margin-left: 8px;
+          margin-top: 18px;
+      }
+
+
+
+      a.nav-link {
+          color: white!important;
+          font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      
+
+      class AppContainer extends React.Component {
+          render() {  
+              return (        
+                <div id="AppContainer" >
+                  <Header />
+                  <BodyContainer />
+                  <Footer />
+                  <h1>Hello, world!</h1>
+                </div>
+              );
+          }
+      }
+
+      class Header extends React.Component {
+        render() {
+          return (
+              <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <img src="Logo.jpg" alt="Paris" width="70" height="70" />
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                  <div className="row">
+                  <div className="col-12"><h3>MS Alliance Internal Global Site</h3></div>
+                  <div className="col-12">
+                    <ul className="navbar-nav">
+                    <li className="nav-item active">
+                      <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">Acquisitions</a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">Alliances</a>
+                    </li>
+                    <li className="nav-item ">
+                      <a className="nav-link" href="#">Contacts</a>
+                    </li>
+                  </ul>
+                  </div>
+
+                    
+                  </div>
+                </div>
+              </nav>
+          )
+        }
+      }
+
+      class BodyContainer extends React.Component {
+        render() {
+          return (
+            <div id="BodyContainer" className="container-fluid">
+              <div className="row">
+                <LeftBodyContainer />
+                <CenterBodyContainer />
+                <RightrBodyContainer />
+              </div>
+            </div>
+          );
+        }
+      }
+
+      class LeftBodyContainer extends React.Component {
+        render() {
+          return (
+            <div id="LeftBodyContainer" className="col-2">This is Body LeftBodyContainer</div>
+          )
+        }
+      }
+
+      class CenterBodyContainer extends React.Component {
+        render() {
+          return (
+            <div id="BodyContainer" className="col-8">This is Body CenterBodyContainerS</div>
+          )
+        }
+      }
+
+      class RightrBodyContainer extends React.Component {
+        render() {
+          return (
+            <div id="BodyContainer" className="col-2">This is Body RightrBodyContainer</div>
+          )
+        }
+      }
+
+      class Footer extends React.Component {
+        render() {
+          return (
+            <div id="Footer">This is Footer</div>
+          )
+        }
+      }
+
+      ReactDOM.render( <AppContainer />, document.getElementById('root') );
+
+    </script>
+  </body>
+</html>
