@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="AppBabel.js"></script>
+    <link rel="stylesheet" type="text/css" href="EYLanding.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      class AppContainer extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              NavLinks: ['Home','Acquisitions','Alliances','Contacts'],
+              Area: ['Americas','EMEIA','Asia-Pacific','Japan'],
+              SliderImages: [{Title: '',URL: 'banner_alliance_2.jpg'},{Title: '',URL: 'banner_alliance.jpg'},{Title: '',URL: 'banner_alliance_2.jpg'}],
+              LatestNews: [
+                {Title: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.', URL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTW4hyJ57KwJ05fbROTx15086dQEohdOiyxDeSnYjz24AKYe1q5'},
+                {Title: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.', URL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTW4hyJ57KwJ05fbROTx15086dQEohdOiyxDeSnYjz24AKYe1q5'},
+                {Title: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.', URL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTW4hyJ57KwJ05fbROTx15086dQEohdOiyxDeSnYjz24AKYe1q5'}
+              ],
+              Announcements: [
+                {Date: '22/07/2019', Announcement: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.'},
+                {Date: '22/07/2019', Announcement: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.'},
+                {Date: '22/07/2019', Announcement: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.'}
+              ],
+              Documents: [
+                {Date:'22/07/2020', Title:'Welcome Kit', Owner:'Doe', DateModified:'22/07/2020', ModifiedBy:'John'},
+                {Date:'22/07/2020', Title:'Welcome Kit', Owner:'Doe', DateModified:'22/07/2020', ModifiedBy:'John'},
+                {Date:'22/07/2020', Title:'Welcome Kit', Owner:'Doe', DateModified:'22/07/2020', ModifiedBy:'John'}
+              ],
+              Videos: ['https://www.youtube.com/embed/6v2L2UGZJAM?rel=0&amp;showinfo=0', 'https://www.youtube.com/embed/6v2L2UGZJAM?rel=0&amp;showinfo=0', 'https://www.youtube.com/embed/6v2L2UGZJAM?rel=0&amp;showinfo=0'],
+              KeyContact: [
+                {Name: 'Rahul Trimukhe', Role: 'Senior Software Developer'},
+                {Name: 'Vinod Giri', Role: 'Senior Software Developer'},
+                {Name: 'Rahul Trimukhe', Role: 'Senior Software Developer'},
+                {Name: 'Vinod Giri', Role: 'Senior Software Developer'},
+                {Name: 'Rahul Trimukhe', Role: 'Senior Software Developer'},
+                {Name: 'Vinod Giri', Role: 'Senior Software Developer'}
+              ]
+            };
+          }
+          render() {  
+              return (        
+                <div id="AppContainer" >
+                  <Header NavLinks = {this.state.NavLinks}/>
+                  <BodyContainer 
+                    Area={this.state.Area} 
+                    SliderImages={this.state.SliderImages} 
+                    LatestNews={this.state.LatestNews} 
+                    Announcements={this.state.Announcements}
+                    Documents={this.state.Documents}
+                    Videos={this.state.Videos}
+                    KeyContact={this.state.KeyContact}
+                  />
+                  <Footer />
+                </div>
+              );
+          }
+      }
+
+      const Header = (props) => {
+        return (
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <img src="Logo.jpg" alt="Paris" width="100" height="80" />
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNavDropdown">
+              <div className="row">
+                <div className="col-12"><h3>MS Alliance Internal Global Site</h3></div>
+                <div className="col-12">
+                  <ul className="navbar-nav">
+                    {
+                      props.NavLinks.map((link)=>{
+                        return <NavLinkItem Title={link} />;
+                      })
+                    }
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        )
+      }
+
+      const NavLinkItem = (props) => {
+        return (
+          <li className="nav-item ">
+            <a className="nav-link" href="#">{props.Title}</a>
+          </li>
+        );
+      }
+
+      const BodyContainer = (props) => {
+        return (
+          <div id="BodyContainer" className="container-fluid">
+            <div className="row">
+              <LeftBodyContainer Area={props.Area}/>
+              <CenterBodyContainer 
+                SliderImages={props.SliderImages} 
+                LatestNews={props.LatestNews} 
+                Announcements={props.Announcements}
+                Documents={props.Documents}  
+                Videos={props.Videos}
+              />
+              <RightBodyContainer KeyContact={props.KeyContact}/>
+            </div>
+          </div>
+        );
+      }
+
+      const LeftBodyContainer = (props) => {
+        return (
+            <div id="LeftBodyContainer" className="col-md-3 col-sm-12 col-xs-12">
+              <div className="col-12" id="GlobalBox">
+                <img src="icon_3.png" alt="Paris" width="90" height="90" />
+                <h5>Global GTM</h5>
+              </div>
+              <div className="col-12" id="AlliancesHome">
+                <div className="row">
+                    <img src="icon_3.png" alt="Paris" width="30" height="30" /><h5 >Alliances Home</h5>
+                </div>
+              </div>
+
+              <div className="col-12" id="Area">
+                <div className="row">
+                  <div id="Logo" className="col-2">
+                    <img src="icon_3.png" alt="Paris" width="30" height="30" />
+                  </div>
+                  <div id="Title" className="col-10">
+                    <h5>Area</h5>
+                  </div>
+                </div>
+              </div>
+              {
+                props.Area.map((Area)=>{
+                  return <div className="col-12 AreaItem"><h5>{Area}</h5></div>
+                })
+              }
+            </div>
+          )
+      }
+
+      const CenterBodyContainer = (props) => {
+        return (
+            <div id="CenterBodyContainer" className="col-md-6 col-sm-12 col-xs-12">
+              <ImageCarousal SliderImages={props.SliderImages}/>
+              <LatestNews LatestNews={props.LatestNews}/>
+              <LatestAnnouncment Announcements={props.Announcements}/>
+              <LatestDocument Documents={props.Documents} />
+              <LatestVideos/>
+            </div>
+          )
+      }
+
+      const ImageCarousal = (props) => {
+        return (
+          <div id="demo" className="carousel slide" data-ride="carousel">
+            <ol className="carousel-indicators">
+              {
+                props.SliderImages.map((index)=>{
+                  return (
+                    <li data-target="#demo" data-slide-to={index} className={index===0? 'active' :''}></li>
+                  );
+                })
+              }
+            </ol>
+            <div className="carousel-inner">
+              {
+                props.SliderImages.map((Image,index)=>{
+                  return (
+                    <div className={`carousel-item ${index===0 && 'active'}`}>
+                      <img src={Image.URL} alt="Los Angeles"  height="250" />
+                    </div>
+                  );
+                })
+              }
+            </div>
+            <a className="carousel-control-prev" href="#demo" data-slide="prev">
+              <span className="carousel-control-prev-icon"></span>
+            </a>
+            <a className="carousel-control-next" href="#demo" data-slide="next">
+              <span className="carousel-control-next-icon"></span>
+            </a>
+          </div>
+        );
+      }
+
+      const Toggle = (control,e) => {
+        e.preventDefault();
+        $(`#${control}`).toggle();
+      }
+      
+      const LatestNews = (props) => {
+        return (
+          <div className="row" id="LatestNews">
+            <div id="Logo1" className="col-1">
+              <img src="icon_1.png" alt="Paris" width="45" height="45" />
+            </div>
+            <div id="Title" className="col-11">
+              <h5 style={{float: 'left'}}>Latest News</h5>
+              <a href="#" onClick={Toggle.bind(this,'LatestNewsBox')}><img src="circle.png" alt="Paris" width="30" height="30"  style={{float: 'right'}}/></a>
+            </div>
+            <div className="col-12 LatestNewBox" id="LatestNewsBox">
+                    {
+                      props.LatestNews.map((News)=>{
+                        return (
+                          <div className="row" id="LatestNewsContent">
+                            <div className="col-2">
+                              <img src={News.URL} alt="Paris" width="80" height="80" className="image thumbnail"/>
+                            </div>
+                            <div className="col-10">
+                              {News.Title}
+                            </div>
+                          </div>
+                        )
+                      })
+                    }
+                </div>
+            </div>
+        );
+      }
+      
+      const LatestAnnouncment =(props) => {
+        return (
+          <div className="row" id="LatestAnnouncement">
+                <div id="Logo1" className="col-1">
+                  <img src="icon_2.png" alt="Paris" width="45" height="45" />
+                </div>
+                <div id="Title" className="col-11">
+                  <h5 style={{float: 'left'}}>Latest Announcements</h5>
+                  <a href="#" onClick={Toggle.bind(this,'AnnouncementBox')}><img src="circle.png" alt="Paris" width="30" height="30"  style={{float: 'right'}}/></a>
+                </div>
+
+                <div className="col-12 AnnouncementBox" id="AnnouncementBox" >
+                  <table className="table">
+                    <tbody>
+                      {
+                        props.Announcements.map((Announcement)=>{
+                          return(
+                            <tr>
+                              <td>{Announcement.Date}</td>
+                              <td>{Announcement.Announcement}</td>
+                            </tr>
+                          );
+                        })
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+        )
+      }
+      
+      const LatestDocument = (props)=> {
+        return (
+          <div className="row" id="LatestDocument">
+                <div id="Logo1" className="col-1">
+                  <img src="icon_313.png" alt="Paris" width="45" height="45" />
+                </div>
+                <div id="Title" className="col-11">
+                  <h5 style={{float: 'left'}}>Latest Documents</h5>
+                  <a href="#" onClick={Toggle.bind(this,'LatestDocumentBox')}><img src="circle.png" alt="Paris" width="30" height="30"  style={{float: 'right'}}/></a>
+                </div>
+                <div className="col-12 LatestDocumentBox responsive" id="LatestDocumentBox">
+                  <table className="table table-responsive">
+                    <thead className="thead-light">
+                      <tr>
+                        <th></th>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Owner</th>
+                        <th>Date Modified</th>
+                        <th>Modified By</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {
+                        props.Documents.map((Document)=>{
+                        return(
+                          <tr>
+                            <td></td>
+                            <td>{Document.Date}</td>
+                            <td>{Document.Title}</td>
+                            <td>{Document.Owner}</td>
+                            <td>{Document.DateModified}</td>
+                            <td>{Document.ModifiedBy}</td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+        );
+      }
+
+      const LatestVideos = (props) => {
+        return (
+          <div className="row" id="LatestVideos">
+                <div id="Logo1" className="col-1">
+                  <img src="icon_4.png" alt="Paris" width="45" height="45" />
+                </div>
+                <div id="Title" className="col-11">
+                  <h5 style={{float: 'left'}}>Lates Videos</h5>
+                  <a href="#" onClick={Toggle.bind(this,'LatestVideo')}><img src="circle.png" alt="Paris" width="30" height="30"  style={{float: 'right'}}/></a>
+                </div>
+
+                <div className="col-12 LatestVideo" id='LatestVideo'>
+                  <div id="demo" className="carousel slide" data-ride="carousel">
+                    <ol className="carousel-indicators">
+                      <li data-target="#demo" data-slide-to="0" className="active"></li>
+                      <li data-target="#demo" data-slide-to="1"></li>
+                      <li data-target="#demo" data-slide-to="2"></li>
+                    </ol>
+                    <div className="carousel-inner">
+                      <div className="carousel-item active">
+                        <div className="row VideoItem">
+                          <div className="col-4 VideoItem">
+                            <div className="responsive-video">
+                              <iframe src="https://www.youtube.com/embed/6v2L2UGZJAM?rel=0&amp;showinfo=0" width="120" height="120" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                            </div>
+                          </div>
+                          <div className="col-4 VideoItem">
+                            <div className="responsive-video">
+                              <iframe src="https://www.youtube.com/embed/aBnGzklDHnM?rel=0&amp;showinfo=0" width="120" height="120" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                            </div>
+                          </div>
+                          <div className="col-4 VideoItem">
+                            <div className="responsive-video">
+                              <iframe src="https://www.youtube.com/embed/aBnGzklDHnM?rel=0&amp;showinfo=0" width="120" height="120" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                            </div>
+                          </div>
+                        </div>         
+                      </div>
+                      
+                      <div className="carousel-item">
+                        <div className="row VideoItem">
+                          <div className="col-4 VideoItem">
+                            <div className="responsive-video">
+                              <iframe src="https://www.youtube.com/embed/6v2L2UGZJAM?rel=0&amp;showinfo=0" width="120" height="120" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                            </div>
+                          </div>
+                          <div className="col-4 VideoItem">
+                            <div className="responsive-video">
+                              <iframe src="https://www.youtube.com/embed/aBnGzklDHnM?rel=0&amp;showinfo=0" width="120" height="120" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                            </div>
+                          </div>
+                          <div className="col-4 VideoItem">
+                            <div className="responsive-video">
+                              <iframe src="https://www.youtube.com/embed/aBnGzklDHnM?rel=0&amp;showinfo=0" width="120" height="120" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                            </div>
+                          </div>
+                        </div>                            
+                      </div>
+                    </div>
+                    <a className="carousel-control-prev" href="#demo" data-slide="prev">
+                      <span className="carousel-control-prev-icon"></span>
+                    </a>
+                    <a className="carousel-control-next" href="#demo" data-slide="next">
+                      <span className="carousel-control-next-icon"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+        );
+      }
+      
+      const RightBodyContainer = (props) => {
+        return (
+            <div id="RightBodyContainer" className="col-md-3 col-sm-12 col-xs-12">
+              <KeyContact KeyContact={props.KeyContact}/>
+              <div className="col-12" id="Area">
+                <div className="row">
+                  <div id="Logo" className="col-2">
+                    <img src="Global GTM_americas.jpg" alt="Paris" width="30" height="30" />
+                  </div>
+                  <div id="Title" className="col-10" style={{padding: '0px'}}>
+                    <input type="text" className="form-control FindExpert" placeholder="Find an expert"/>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12" id="Area">
+                <div className="row">
+                  <div id="Logo" className="col-2">
+                    <img src="icon_222.jpg" alt="Paris" width="30" height="30" />
+                  </div>
+                  <div id="Title" className="col-10">
+                    Quick links
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+      }
+
+      const KeyContact = (props) => {
+        return (
+          <div className="col-12" id="KeyContact">
+            <div className="row">
+              <div id="Logo" className="col-2">
+                <img src="Global GTM_americas.jpg" alt="Paris" width="30" height="30" />
+              </div>
+              <div id="Title" className="col-10">
+                <h5 style={{float: 'left'}}>Key Contacts</h5>
+                <a href="#" onClick={Toggle.bind(this,'ContactCard')}><img src="circle.png" alt="Paris" width="30" height="30"  style={{float: 'right'}}/></a>
+              </div>
+              <div className="col-12 ContactCard" id='ContactCard'>
+              {
+                props.KeyContact.map((Contact)=>{
+                  return (
+                    <React.Fragment>
+                      <div className="row marginbottom5">
+                        <div className="col-2">
+                          <img src="icon_777.png" alt="Paris" width="45" height="45" />
+                        </div>
+                        <div className="col-10">Rahul Trimukhe <br/> <span className="Designation"> Scinior Software Developer</span></div>
+                      </div>
+                    </React.Fragment>
+                  )
+                })
+              }
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      const Footer = (props) => {
+        return (
+          <div id="Footer">This is Footer</div>
+        )
+      }
+
+      ReactDOM.render( <AppContainer />, document.getElementById('root') );
+
+    </script>
+  </body>
+</html>
