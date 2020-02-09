@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
@@ -17,7 +18,6 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-
       class AppContainer extends React.Component {
           constructor(props) {
             super(props);
@@ -69,7 +69,6 @@
               );
           }
       }
-
       const Header = (props) => {
         return (
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -94,7 +93,6 @@
           </nav>
         )
       }
-
       const NavLinkItem = (props) => {
         return (
           <li className="nav-item ">
@@ -102,7 +100,6 @@
           </li>
         );
       }
-
       const BodyContainer = (props) => {
         return (
           <div id="BodyContainer" className="container-fluid">
@@ -120,7 +117,6 @@
           </div>
         );
       }
-
       const LeftBodyContainer = (props) => {
         return (
             <div id="LeftBodyContainer" className="col-md-3 col-sm-12 col-xs-12">
@@ -152,7 +148,6 @@
             </div>
           )
       }
-
       const CenterBodyContainer = (props) => {
         return (
             <div id="CenterBodyContainer" className="col-md-6 col-sm-12 col-xs-12">
@@ -164,7 +159,6 @@
             </div>
           )
       }
-
       const ImageCarousal = (props) => {
         return (
           <div id="demo" className="carousel slide" data-ride="carousel">
@@ -182,7 +176,7 @@
                 props.SliderImages.map((Image,index)=>{
                   return (
                     <div className={`carousel-item ${index===0 && 'active'}`}>
-                      <img src={Image.URL} alt="Los Angeles"  height="250" />
+                      <img src={Image.URL} alt="Los Angeles"  height="200" />
                     </div>
                   );
                 })
@@ -197,19 +191,17 @@
           </div>
         );
       }
-
       const Toggle = (control,e) => {
         e.preventDefault();
         $(`#${control}`).toggle();
-      }
-      
+      }  
       const LatestNews = (props) => {
         return (
           <div className="row" id="LatestNews">
-            <div id="Logo1" className="col-1">
+            <div id="Logo1" className="col-md-1 col-sm-2 col-xs-2">
               <img src="icon_1.png" alt="Paris" width="45" height="45" />
             </div>
-            <div id="Title" className="col-11">
+            <div id="Title" className="col-md-11 col-sm-10 col-xs-10">
               <h5 style={{float: 'left'}}>Latest News</h5>
               <a href="#" onClick={Toggle.bind(this,'LatestNewsBox')}><img src="circle.png" alt="Paris" width="30" height="30"  style={{float: 'right'}}/></a>
             </div>
@@ -218,10 +210,10 @@
                       props.LatestNews.map((News)=>{
                         return (
                           <div className="row" id="LatestNewsContent">
-                            <div className="col-2">
+                            <div className="col-md-2 col-sm-12 col-xs-12">
                               <img src={News.URL} alt="Paris" width="80" height="80" className="image thumbnail"/>
                             </div>
-                            <div className="col-10">
+                            <div className="col-md-10 col-sm-12 col-xs-12">
                               {News.Title}
                             </div>
                           </div>
@@ -231,15 +223,14 @@
                 </div>
             </div>
         );
-      }
-      
+      }     
       const LatestAnnouncment =(props) => {
         return (
           <div className="row" id="LatestAnnouncement">
-                <div id="Logo1" className="col-1">
+                <div id="Logo1" className="col-md-1 col-sm-2 col-xs-2">
                   <img src="icon_2.png" alt="Paris" width="45" height="45" />
                 </div>
-                <div id="Title" className="col-11">
+                <div id="Title" className="col-md-11 col-sm-10 col-xs-10">
                   <h5 style={{float: 'left'}}>Latest Announcements</h5>
                   <a href="#" onClick={Toggle.bind(this,'AnnouncementBox')}><img src="circle.png" alt="Paris" width="30" height="30"  style={{float: 'right'}}/></a>
                 </div>
@@ -262,15 +253,14 @@
                 </div>
               </div>
         )
-      }
-      
+      }      
       const LatestDocument = (props)=> {
         return (
           <div className="row" id="LatestDocument">
-                <div id="Logo1" className="col-1">
+                <div id="Logo1" className="col-md-1 col-sm-2 col-xs-2">
                   <img src="icon_313.png" alt="Paris" width="45" height="45" />
                 </div>
-                <div id="Title" className="col-11">
+                <div id="Title" className="col-md-11 col-sm-10 col-xs-10">
                   <h5 style={{float: 'left'}}>Latest Documents</h5>
                   <a href="#" onClick={Toggle.bind(this,'LatestDocumentBox')}><img src="circle.png" alt="Paris" width="30" height="30"  style={{float: 'right'}}/></a>
                 </div>
@@ -306,14 +296,13 @@
               </div>
         );
       }
-
       const LatestVideos = (props) => {
         return (
           <div className="row" id="LatestVideos">
-                <div id="Logo1" className="col-1">
+                <div id="Logo1" className="col-md-1 col-sm-2 col-xs-2">
                   <img src="icon_4.png" alt="Paris" width="45" height="45" />
                 </div>
-                <div id="Title" className="col-11">
+                <div id="Title" className="col-md-11 col-sm-10 col-xs-10">
                   <h5 style={{float: 'left'}}>Lates Videos</h5>
                   <a href="#" onClick={Toggle.bind(this,'LatestVideo')}><img src="circle.png" alt="Paris" width="30" height="30"  style={{float: 'right'}}/></a>
                 </div>
@@ -376,8 +365,7 @@
                 </div>
               </div>
         );
-      }
-      
+      }    
       const RightBodyContainer = (props) => {
         return (
             <div id="RightBodyContainer" className="col-md-3 col-sm-12 col-xs-12">
@@ -405,7 +393,6 @@
             </div>
           )
       }
-
       const KeyContact = (props) => {
         return (
           <div className="col-12" id="KeyContact">
@@ -437,15 +424,12 @@
           </div>
         );
       }
-
       const Footer = (props) => {
         return (
           <div id="Footer">This is Footer</div>
         )
       }
-
       ReactDOM.render( <AppContainer />, document.getElementById('root') );
-
     </script>
   </body>
 </html>
